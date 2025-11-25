@@ -1,0 +1,8 @@
+antenna.lyrdb
+density.lyrdb
+main.lyrdb
+backups/
+*.cir
+*.1
+*.2
+*.3
