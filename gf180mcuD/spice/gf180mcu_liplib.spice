@@ -13,26 +13,27 @@ C1 DVDD DVSS cap_nmos_06v0 c_width=15e-6 c_length=15e-6 m=22
 
 .subckt gf180mcu_liplib__asig_guard_sense_5p0 sense sense_res pad DVDD pad_res DVSS VDD VSS pad_guard
 *.PININFO pad:B pad_guard:B DVDD:B DVSS:B pad_res:B sense:B sense_res:B VDD:B VSS:B
-D1 pad_guard pad diode_nd2ps_06v0 area='2.34u * 45.68u ' pj='2*2.34u + 2*45.68u ' m=8
-D2 DVSS pad_guard diode_nd2ps_06v0 area='3u * 50u ' pj='2*3u + 2*50u ' m=8
-D3 pad pad_guard diode_pd2nw_06v0 area='2.34u * 45.68u ' pj='2*2.34u + 2*45.68u ' m=8
-D4 pad_guard DVDD diode_pd2nw_06v0 area='3u * 50u ' pj='2*3u + 2*50u ' m=8
+D1 net1 pad diode_nd2ps_06v0 area='2.34u * 45.68u ' pj='2*2.34u + 2*45.68u ' m=8
+D2 DVSS net1 diode_nd2ps_06v0 area='3u * 50u ' pj='2*3u + 2*50u ' m=8
+D3 pad net1 diode_pd2nw_06v0 area='2.34u * 45.68u ' pj='2*2.34u + 2*45.68u ' m=8
+D4 net1 DVDD diode_pd2nw_06v0 area='3u * 50u ' pj='2*3u + 2*50u ' m=8
 R1 pad pad_res pad_guard ppolyf_u_1k_6p0 r_width=4e-6 r_length=4e-6 m=1
 D5 pad_res pad_guard diode_pd2nw_06v0 area='0.58u * 5.93u ' pj='2*0.58u + 2*5.93u ' m=4
 D6 pad_guard pad_res diode_nd2ps_06v0 area='0.58u * 5.93u ' pj='2*0.58u + 2*5.93u ' m=4
 D7 DVSS DVDD diode_nd2ps_06v0 area='3.48u * 50.48u ' pj='2*3.48u + 2*50.48u ' m=4
-D8 pad_guard sense diode_nd2ps_06v0 area='2.34u * 45.68u ' pj='2*2.34u + 2*45.68u ' m=8
-D9 sense pad_guard diode_pd2nw_06v0 area='2.34u * 45.68u ' pj='2*2.34u + 2*45.68u ' m=8
+D8 net1 sense diode_nd2ps_06v0 area='2.34u * 45.68u ' pj='2*2.34u + 2*45.68u ' m=8
+D9 sense net1 diode_pd2nw_06v0 area='2.34u * 45.68u ' pj='2*2.34u + 2*45.68u ' m=8
 R2 sense sense_res pad_guard ppolyf_u_1k_6p0 r_width=4e-6 r_length=4e-6 m=1
 D10 sense_res pad_guard diode_pd2nw_06v0 area='0.58u * 5.93u ' pj='2*0.58u + 2*5.93u ' m=4
 D11 pad_guard sense_res diode_nd2ps_06v0 area='0.58u * 5.93u ' pj='2*0.58u + 2*5.93u ' m=4
 D14 pad_guard pad_guard diode_nd2ps_06v0 area='0.58u * 5.93u ' pj='2*0.58u + 2*5.93u ' m=2
 D15 pad_guard pad_guard diode_pd2nw_06v0 area='0.58u * 5.93u ' pj='2*0.58u + 2*5.93u ' m=2
-D12 pad_guard pad_guard diode_nd2ps_06v0 area='2.34u * 45.68u ' pj='2*2.34u + 2*45.68u ' m=6
-D13 pad_guard pad_guard diode_pd2nw_06v0 area='2.34u * 45.68u ' pj='2*2.34u + 2*45.68u ' m=6
-R5 pad_guard pad_guard pad_guard ppolyf_u_1k_6p0 r_width=48e-6 r_length=2e-6 m=1
+D12 net1 net1 diode_nd2ps_06v0 area='2.34u * 45.68u ' pj='2*2.34u + 2*45.68u ' m=6
+D13 net1 net1 diode_pd2nw_06v0 area='2.34u * 45.68u ' pj='2*2.34u + 2*45.68u ' m=6
+R5 pad_guard pad_guard pad_guard ppolyf_u_1k_6p0 r_width=40e-6 r_length=2e-6 m=1
 C1 VDD VSS cap_nmos_06v0 c_width=6e-6 c_length=7e-6 m=448
 C2 VDD VSS cap_nmos_06v0 c_width=1.5e-6 c_length=1.5e-6 m=140
+R3 pad_guard net1 pad_guard ppolyf_u_1k_6p0 r_width=8e-6 r_length=2e-6 m=1
 .ends
 
 .subckt gf180mcu_liplib__no_esd_guarded pad DVDD DVSS VDD VSS pad_guard
