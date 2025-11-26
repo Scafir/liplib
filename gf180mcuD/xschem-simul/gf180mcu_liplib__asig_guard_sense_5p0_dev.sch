@@ -74,6 +74,7 @@ N 360 180 420 180 {lab=pad_res}
 N 260 0 340 -0 {lab=sense}
 N 220 180 300 180 {lab=pad}
 N 270 -100 270 400 {lab=#net1}
+N 140 260 140 320 {lab=#net5}
 N 250 -100 270 -100 {lab=#net1}
 N 330 -100 420 -100 {lab=pad_guard}
 N 390 420 390 440 {lab=pad_guard}
@@ -82,8 +83,11 @@ N 460 400 460 440 {lab=pad_guard}
 N -20 340 80 340 {lab=#net1}
 N 80 340 80 400 {lab=#net1}
 N -20 400 140 400 {lab=#net1}
-N 140 260 140 290 {lab=#net5}
-N 140 350 140 400 {lab=#net1}
+N 480 400 480 420 {lab=pad_guard}
+N 480 480 480 500 {lab=DVSS}
+N 480 -120 480 -100 {lab=pad_guard}
+N 480 -200 480 -180 {lab=DVDD}
+N 140 380 140 400 {lab=#net1}
 C {iopin.sym} -20 180 2 0 {name=p1 lab=pad}
 C {iopin.sym} 540 400 0 0 {name=p2 lab=pad_guard}
 C {iopin.sym} -20 -200 2 0 {name=p3 lab=DVDD}
@@ -207,7 +211,17 @@ model=ppolyf_u_1k_6p0
 
 spiceprefix=X
 m=1}
-C {ammeter.sym} 140 320 2 0 {name=Vmeasdintovss savecurrent=true spice_ignore=0}
-C {ammeter.sym} 140 50 2 0 {name=Vmeasdintovdd savecurrent=true spice_ignore=0}
-C {ammeter.sym} 420 50 2 0 {name=Vmeasdoutovdd savecurrent=true spice_ignore=0}
-C {ammeter.sym} 420 310 2 0 {name=Vmeasdoutovss savecurrent=true spice_ignore=0}
+C {symbols/diode_nd2ps_06v0.sym} 480 450 2 0 {name=D16
+model=diode_nd2ps_06v0
+r_w=1u
+r_l=12u
+m=1}
+C {symbols/diode_pd2nw_06v0.sym} 480 -150 2 0 {name=D17
+model=diode_pd2nw_06v0
+r_w=1u
+r_l=12u
+m=1}
+C {ammeter.sym} 140 350 2 0 {name=Vmeasdintovss savecurrent=true spice_ignore=0}
+C {ammeter.sym} 140 50 0 0 {name=Vmeasdintovdd savecurrent=true spice_ignore=0}
+C {ammeter.sym} 420 50 0 0 {name=Vmeasdoutovdd savecurrent=true spice_ignore=0}
+C {ammeter.sym} 420 310 0 0 {name=Vmeasdoutovss savecurrent=true spice_ignore=0}

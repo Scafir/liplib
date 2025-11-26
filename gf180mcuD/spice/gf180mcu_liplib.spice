@@ -34,6 +34,8 @@ R5 pad_guard pad_guard pad_guard ppolyf_u_1k_6p0 r_width=40e-6 r_length=2e-6 m=1
 C1 VDD VSS cap_nmos_06v0 c_width=6e-6 c_length=7e-6 m=448
 C2 VDD VSS cap_nmos_06v0 c_width=1.5e-6 c_length=1.5e-6 m=140
 R3 pad_guard net1 pad_guard ppolyf_u_1k_6p0 r_width=8e-6 r_length=2e-6 m=1
+D16 DVSS pad_guard diode_nd2ps_06v0 area='1u * 12u ' pj='2*1u + 2*12u ' m=1
+D17 pad_guard DVDD diode_pd2nw_06v0 area='1u * 12u ' pj='2*1u + 2*12u ' m=1
 .ends
 
 .subckt gf180mcu_liplib__no_esd_guarded pad DVDD DVSS VDD VSS pad_guard

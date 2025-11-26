@@ -11,7 +11,6 @@ D7 DVSS DVDD diode_nd2ps_06v0 A='3.48u * 50.48u ' P='2*3.48u + 2*50.48u ' m=4
 C1 DVDD DVSS cap_nmos_06v0 W=15e-6 L=15e-6 m=22
 .ends
 
-** sch_path: /home/claforge/Documents/liplib/gf180mcuD/xschem/gf180mcu_liplib__asig_guard_sense_5p0.sch
 .subckt gf180mcu_liplib__asig_guard_sense_5p0 sense sense_res pad DVDD pad_res DVSS VDD VSS pad_guard
 *.PININFO pad:B pad_guard:B DVDD:B DVSS:B pad_res:B sense:B sense_res:B VDD:B VSS:B
 D1 net1 pad diode_nd2ps_06v0 A='2.34u * 45.68u ' P='2*2.34u + 2*45.68u ' m=8
@@ -35,6 +34,8 @@ R5 pad_guard pad_guard pad_guard ppolyf_u_1k_6p0 W=40e-6 L=2e-6 m=1
 C1 VDD VSS cap_nmos_06v0 W=6e-6 L=7e-6 m=448
 C2 VDD VSS cap_nmos_06v0 W=1.5e-6 L=1.5e-6 m=140
 R3 pad_guard net1 pad_guard ppolyf_u_1k_6p0 W=8e-6 L=2e-6 m=1
+D16 DVSS pad_guard diode_nd2ps_06v0 A='1u * 12u ' P='2*1u + 2*12u ' m=1
+D17 pad_guard DVDD diode_pd2nw_06v0 A='1u * 12u ' P='2*1u + 2*12u ' m=1
 .ends
 
 .subckt gf180mcu_liplib__no_esd_guarded pad DVDD DVSS VDD VSS pad_guard
