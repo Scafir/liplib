@@ -1,14 +1,18 @@
+** sch_path: /home/clyde/Documents/liplib/gf180mcuD/xschem/gf180mcu_liplib__asig_guard_5p0.sch
 .subckt gf180mcu_liplib__asig_guard_5p0 pad DVDD pad_res DVSS VDD VSS pad_guard
 *.PININFO pad:B pad_guard:B DVDD:B DVSS:B pad_res:B VDD:B VSS:B
-D1 pad_guard pad diode_nd2ps_06v0 A='3u * 50u ' P='2*3u + 2*50u ' m=8
-D2 DVSS pad_guard diode_nd2ps_06v0 A='3u * 50u ' P='2*3u + 2*50u ' m=8
-D3 pad pad_guard diode_pd2nw_06v0 A='3u * 50u ' P='2*3u + 2*50u ' m=8
-D4 pad_guard DVDD diode_pd2nw_06v0 A='3u * 50u ' P='2*3u + 2*50u ' m=8
-R1 pad pad_res DVDD ppolyf_u_1k W=2e-6 L=2e-6 m=1
-D5 pad_res pad_guard diode_pd2nw_06v0 A='5u * 5u ' P='2*5u + 2*5u ' m=1
-D6 pad_guard pad_res diode_nd2ps_06v0 A='5u * 5u ' P='2*5u + 2*5u ' m=1
-D7 DVSS DVDD diode_nd2ps_06v0 A='3.48u * 50.48u ' P='2*3.48u + 2*50.48u ' m=4
-C1 DVDD DVSS cap_nmos_06v0 W=15e-6 L=15e-6 m=22
+D1 net1 pad diode_nd2ps_06v0 A='3u * 50u ' P='2*3u + 2*50u ' m=8
+D2 DVSS net1 diode_nd2ps_06v0 A='3u * 50u ' P='2*3u + 2*50u ' m=8
+D3 pad net1 diode_pd2nw_06v0 A='3u * 50u ' P='2*3u + 2*50u ' m=8
+D4 net1 DVDD diode_pd2nw_06v0 A='3u * 50u ' P='2*3u + 2*50u ' m=8
+D7 DVSS DVDD diode_nd2ps_06v0 A='3u * 50u ' P='2*3u + 2*50u ' m=8
+C1 DVDD DVSS cap_nmos_06v0 W=15e-6 L=15e-6 m=20
+D16 DVSS pad_guard diode_nd2ps_06v0 A='1u * 12u ' P='2*1u + 2*12u ' m=1
+D17 pad_guard DVDD diode_pd2nw_06v0 A='1u * 12u ' P='2*1u + 2*12u ' m=1
+D6 pad_guard pad_res diode_nd2ps_06v0 A='1u * 12u ' P='2*1u + 2*12u ' m=1
+D5 pad_res pad_guard diode_pd2nw_06v0 A='1u * 12u ' P='2*1u + 2*12u ' m=1
+R3 net1 pad_guard pad_guard ppolyf_u_1k_6p0 W=2e-6 L=2e-6 m=1
+R1 pad pad_res pad_guard ppolyf_u_1k_6p0 W=2e-6 L=2e-6 m=1
 .ends
 
 .subckt gf180mcu_liplib__asig_guard_sense_5p0 sense sense_res pad DVDD pad_res DVSS VDD VSS pad_guard
