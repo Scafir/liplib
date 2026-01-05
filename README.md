@@ -35,6 +35,7 @@ This can be seen as a mitigation, as the diodes will still be leaking and still 
 It may not be possible to implement this pad in all technologies, as the lower diode going from the pad to guard requires its anode to be isolated from VSS. This restricts its application to deep N-Well capable technologies.
 
 [1] 10.1109/ISCAS51556.2021.9401369
+
 [2] https://www.analog.com/en/products/ada4530-1.html
 
 ## Guarded Sense Analog Pad
@@ -43,13 +44,10 @@ While the guarded analog pad is a significant improvement of the classic one, it
 
 The temperature can be particularly bad, as stable leakage would then require climate controlled conditions, with long initial power on times.
 
-This can be avoided elegantly by introducing a new pad with centroid matched ESD diodes to the input. Then, one can feed the guard voltage by buffering the input.
-The leakage experienced by the input would then be mirrored by the sense line. This enables different leakage compensation methods.
-An elegant one would be to have the sense line as integrator with negative feedback control to the guard voltage to stabilize it at zero.
+This can be avoided by adding a twin of the input: the sense line.
+By having it mirror exactly the input (including output pad), the leakage sensed on the sense line
+can be compensated on the input, by means of changing the guard voltage.
 
 This approach again requires deep N-well capable technology, as well as designing custom ESD diodes to allow proper interleaving/matching of the input and sense line.
-As the ESD diodes have to be redesigned, it is also a good opportunity to try an match their leakage current around zero volt by sizing the upper and lower diode differently.
-
-
 
 
